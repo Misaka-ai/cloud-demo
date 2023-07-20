@@ -41,3 +41,9 @@ ribbon:
     clients:
       - userservice
     enabled: true
+
+feign:
+  httpclient:
+    enabled: true
+    max-connections-per-route: 50
+    max-connections: 200
