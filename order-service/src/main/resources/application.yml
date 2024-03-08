@@ -1,10 +1,20 @@
 server:
   port: 8080
 spring:
+  application:
+    name: orderservice
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        cluster-name: HF
+        ephemeral: true
+  #       group: DEV
+  #     amespace: 012044cd-6e33-43a7-b3c7-4b70741743a7
   datasource:
     url: jdbc:mysql://localhost:3306/cloud_order?useSSL=false
     username: root
-    password: Root.1996
+    password: xy244812
     driver-class-name: com.mysql.jdbc.Driver
 mybatis:
   type-aliases-package: cn.itcast.user.pojo
@@ -15,3 +25,4 @@ logging:
     cn.itcast: debug
   pattern:
     dateformat: MM-dd HH:mm:ss:SSS
+

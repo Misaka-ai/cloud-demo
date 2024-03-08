@@ -1,5 +1,6 @@
 package cn.itcast.order.service;
 
+import cn.itcast.order.config.RestTemplateConfiguration;
 import cn.itcast.order.mapper.OrderMapper;
 import cn.itcast.order.pojo.Order;
 import cn.itcast.order.pojo.User;
@@ -22,7 +23,7 @@ public class OrderService {
         Order order = orderMapper.findById(orderId);
 
         Long userId = order.getUserId();
-        ResponseEntity<User> responseEntity = restTemplate.getForEntity("http://localhost:8081/user/" + userId, User.class);
+        ResponseEntity<User> responseEntity = restTemplate.getForEntity("http://userservice/user/" + userId, User.class);
         User user = responseEntity.getBody();
         order.setUser(user);
         // 4.返回
